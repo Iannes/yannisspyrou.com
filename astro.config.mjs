@@ -2,9 +2,11 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react'; // Add this line
 import mdx from '@astrojs/mdx';
+import netlify from '@astrojs/netlify';
 
 // https://astro.build/config
 export default defineConfig({
+  adapter: netlify(),
   site: process.env.SITE_URL || 'http://localhost:4321',
   integrations: [
     tailwind(),
