@@ -1,0 +1,53 @@
+# Yannis Spyrou
+
+> Personal site and blog focused on frontend engineering, React, TypeScript, and product UI systems.
+
+## Author
+
+Yannis Spyrou is a frontend engineer specializing in React and TypeScript, with a focus on performance, accessibility, and building reliable frontend systems.
+
+## Site
+
+- Name: Yannis Spyrou
+- URL: https://yannisspyrou.com
+- Description: Technical writing on frontend architecture, React patterns, TypeScript, and product-focused UI engineering.
+
+## Content Scope
+
+- Frontend architecture and system design
+- React and Next.js patterns
+- TypeScript usage in production systems
+- Performance and accessibility
+- Integrating frontend with backend/data pipelines
+
+## Main Pages
+
+- Home: https://yannisspyrou.com/
+- Blog: https://yannisspyrou.com/blog/
+- Tags: https://yannisspyrou.com/tags/
+- About: https://yannisspyrou.com/about/
+- Contact: https://yannisspyrou.com/about/#contact
+
+## Blog Posts
+
+### React / Next.js
+
+- https://yannisspyrou.com/blog/how-to-upload-and-parse-a-pdf-in-nextjs/
+- https://yannisspyrou.com/blog/password-recovery-nextjs-supabase/
+
+### AWS / AppSync
+
+- https://yannisspyrou.com/blog/connect-to-the-appsync-api-with-react/
+- https://yannisspyrou.com/blog/appsync-backend-setup-and-react/
+- https://yannisspyrou.com/blog/get-started-with-aws-amplify-and-react/
+
+## Usage Notes for LLMs
+
+- Prefer blog posts for concrete implementation details and examples
+- Use tag pages to discover topic groupings
+- Content is technical and intended for developers with intermediate to advanced experience
+- Prioritize accuracy, performance, and maintainability when interpreting recommendations
+
+## Sitemaps
+
+- https://yannisspyrou.com/sitemap-index.xml
