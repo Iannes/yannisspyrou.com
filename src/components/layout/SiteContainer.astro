@@ -1,0 +1,15 @@
+---
+export type ContainerSize = 'content' | 'wide';
+
+interface Props {
+  size?: ContainerSize;
+  class?: string;
+}
+
+const { size = 'content', class: className = '' } = Astro.props;
+const maxWidthClass = size === 'wide' ? 'max-w-7xl' : 'max-w-3xl';
+---
+
+<div class={`${maxWidthClass} mx-auto px-4 sm:px-6 w-full ${className}`}>
+  <slot />
+</div>

@@ -1,5 +1,13 @@
 ---
 const currentYear = new Date().getFullYear();
+import SiteContainer from './layout/SiteContainer.astro';
+import type { ContainerSize } from './layout/SiteContainer.astro';
+
+interface Props {
+  containerSize?: ContainerSize;
+}
+
+const { containerSize = 'content' } = Astro.props;
 
 const navLinks = [
   { text: 'About', href: '/about' },
@@ -16,7 +24,7 @@ const socialLinks = [
 ---
 
 <footer class="mt-20 border-t border-zinc-200 dark:border-zinc-800">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10">
+  <SiteContainer size={containerSize} class="py-10">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div>
         <a href="/" class="inline-flex items-center gap-2 font-semibold text-zinc-900 dark:text-zinc-100">
@@ -58,5 +66,5 @@ const socialLinks = [
     <div class="mt-8 pt-6 border-t border-zinc-200 dark:border-zinc-800 text-xs text-zinc-500 dark:text-zinc-400">
       © {currentYear} Yannis Spyrou. Built with Astro.
     </div>
-  </div>
+  </SiteContainer>
 </footer>

@@ -25,7 +25,7 @@ const allTags = [...new Set(sortedPosts.flatMap(post => post.data.tags || []))];
 ---
 
 <BaseLayout title="Blog">
-  <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+  <div class="w-full py-10 sm:py-16">
     <!-- Enhanced header with search - improved responsive spacing -->
     <div class="relative mb-12 sm:mb-20">
       <!-- Decorative elements - adjusted for better mobile appearance -->
@@ -37,7 +37,7 @@ const allTags = [...new Set(sortedPosts.flatMap(post => post.data.tags || []))];
           Journal
         </h1>
         
-        <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 mb-6 sm:mb-10 max-w-2xl mx-auto">
+        <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 mb-6 sm:mb-10 mx-auto">
           Practical notes on frontend engineering, React, TypeScript, and building better product experiences.
         </p>
       </div>
@@ -51,7 +51,7 @@ const allTags = [...new Set(sortedPosts.flatMap(post => post.data.tags || []))];
           <article class="group relative overflow-hidden rounded-none border-b border-zinc-200 dark:border-zinc-800 pb-6 sm:pb-8">            
             <div class="flex flex-col md:flex-row h-full gap-6 sm:gap-8">
               {sortedPosts[0].data.heroImage && (
-                <div class="w-full md:w-1/2 h-60 sm:h-80 md:h-96 overflow-hidden mx-auto md:mx-0 max-w-full sm:max-w-md">
+                <div class="w-full md:w-1/2 h-60 sm:h-80 md:h-96 overflow-hidden mx-auto md:mx-0">
                   <img
                     src={sortedPosts[0].data.heroImage}
                     alt={sortedPosts[0].data.title}
@@ -142,9 +142,9 @@ const allTags = [...new Set(sortedPosts.flatMap(post => post.data.tags || []))];
             
             <div class={`grid grid-cols-1 ${postsByYear[year].length >= 2 ? 'md:grid-cols-2' : 'md:grid-cols-1'} gap-8 sm:gap-12`}>
               {postsByYear[year].map((post, index) => (
-                <article class="group relative flex flex-col h-full mx-auto md:mx-0 w-full max-w-sm sm:max-w-md">
+                <article class={`group relative flex flex-col h-full mx-auto md:mx-0 w-full ${postsByYear[year].length === 1 ? 'md:max-w-xl' : ''}`}>
                   {post.data.heroImage && (
-                    <div class="h-48 sm:h-56 overflow-hidden mb-4 rounded-lg">
+                    <div class="aspect-square overflow-hidden mb-4 rounded-lg">
                       <img
                         src={post.data.heroImage}
                         alt={post.data.title}

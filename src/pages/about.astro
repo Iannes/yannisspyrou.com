@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 ---
 <BaseLayout title="About Me" description="I'm Yannis, a frontend engineer working with React and TypeScript.">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 theme-transition-all">
+  <div class="w-full py-8 sm:py-12 md:py-16 theme-transition-all">
     <div class="relative mb-12 sm:mb-16 md:mb-20">
       <div class="absolute -top-10 sm:-top-20 -left-10 sm:-left-20 w-36 sm:w-48 md:w-72 h-36 sm:h-48 md:h-72 bg-zinc-100 dark:bg-zinc-800/30 rounded-full blur-3xl opacity-30 animate-blob theme-transition-bg"></div>
       <div class="absolute -bottom-10 sm:-bottom-20 -right-10 sm:-right-20 w-36 sm:w-48 md:w-72 h-36 sm:h-48 md:h-72 bg-zinc-200 dark:bg-zinc-800/30 rounded-full blur-3xl opacity-30 animate-blob animation-delay-2000 theme-transition-bg"></div>
@@ -43,7 +43,7 @@ import ContactForm from '../components/ContactForm.astro';
     
     <!-- About Section - Improved spacing for mobile -->
     <div class="mb-16 sm:mb-20 md:mb-24 theme-transition-all">
-      <div class="max-w-3xl mx-auto">
+      <div>
         <h2 class="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-6 sm:mb-8 flex items-center justify-center md:justify-start theme-transition-color">
           <span class="hidden sm:inline-block w-8 sm:w-12 h-1 bg-zinc-300 dark:bg-zinc-700 mr-4 theme-transition-bg"></span>
           About Me
@@ -60,7 +60,7 @@ import ContactForm from '../components/ContactForm.astro';
     </div>
     
     <!-- Contact Section - Improved for mobile -->
-    <div class="max-w-3xl mx-auto text-center theme-transition-all">
+    <div class="text-center theme-transition-all">
       <h2 class="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 sm:mb-6 theme-transition-color">Get in Touch</h2>
       <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 mb-6 sm:mb-8 theme-transition-color">
         I'm always open to new opportunities and collaborations. If you'd like to work together or just say hello, 
