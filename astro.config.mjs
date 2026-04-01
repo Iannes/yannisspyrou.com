@@ -5,10 +5,12 @@ import mdx from '@astrojs/mdx';
 import netlify from '@astrojs/netlify';
 import sitemap from '@astrojs/sitemap';
 
+const siteUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:4321' : 'https://www.yannisspyrou.com/';
+
 // https://astro.build/config
 export default defineConfig({
   adapter: netlify(),
-  site: process.env.SITE_URL || 'https://www.yannisspyrou.com/',
+  site: siteUrl,
   integrations: [
     tailwind(),
     react(),
