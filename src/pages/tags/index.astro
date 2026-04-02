@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TagBadge from '../../components/TagBadge.astro';
 
 const posts = await getCollection('blog');
 
@@ -17,40 +18,18 @@ const tags = [...tagMap.entries()]
 ---
 
 <BaseLayout title="Tags">
-  <section class="w-full py-10 sm:py-14">
-    <header class="mb-8 sm:mb-10">
-      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-        Tags
-      </h1>
-      <p class="mt-3 text-zinc-600 dark:text-zinc-400">
-        Browse posts by topic.
-      </p>
-    </header>
+  <section class="section-shell pt-16 pb-20">
+    <h1 class="text-4xl font-bold tracking-tight text-foreground mb-2">Tags</h1>
+    <p class="text-base text-muted-foreground mb-10">Browse posts by topic.</p>
 
     {tags.length === 0 ? (
-      <div class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-900/40 p-6">
-        <p class="text-zinc-700 dark:text-zinc-300">No tags found yet.</p>
-      </div>
+      <p class="text-muted-foreground">No tags found yet.</p>
     ) : (
-      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+      <div class="flex flex-wrap gap-2">
         {tags.map((tag) => (
-          <li>
-            <a
-              href={`/tags/${encodeURIComponent(tag.name)}`}
-              class="block rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-4 py-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/60 transition-colors"
-            >
-              <div class="flex items-center justify-between gap-3">
-                <span class="text-base font-medium text-zinc-900 dark:text-zinc-100 break-words">
-                  #{tag.name}
-                </span>
-                <span class="text-xs font-medium rounded-full px-2 py-1 bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300">
-                  {tag.count} {tag.count === 1 ? 'post' : 'posts'}
-                </span>
-              </div>
-            </a>
-          </li>
+          <TagBadge tag={tag.name} count={tag.count} />
         ))}
-      </ul>
+      </div>
     )}
   </section>
 </BaseLayout>

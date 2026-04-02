@@ -1,124 +1,183 @@
-/* Remove all the complex mobile menu styles and keep only what's necessary */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    font-family: "Inter", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    --theme-transition: 0.3s ease;
+    --background: 0 0% 99%;
+    --foreground: 0 0% 9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 221 83% 53%;
+    --accent-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.5rem;
+
+    --prose-body: 0 0% 27%;
+    --prose-heading: 0 0% 9%;
+    --prose-link: 221 83% 53%;
+    --prose-code-bg: 0 0% 95%;
+    --prose-code-text: 0 0% 20%;
+    --prose-blockquote-border: 221 83% 53%;
+    --prose-blockquote-text: 0 0% 35%;
+    --nav-border: 0 0% 92%;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 93%;
+
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 93%;
+
+    --primary: 0 0% 93%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 93%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 221 83% 53%;
+    --accent-foreground: 0 0% 98%;
+
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 221 83% 53%;
+
+    --prose-body: 0 0% 72%;
+    --prose-heading: 0 0% 93%;
+    --prose-link: 221 83% 63%;
+    --prose-code-bg: 0 0% 12%;
+    --prose-code-text: 0 0% 85%;
+    --prose-blockquote-border: 221 83% 53%;
+    --prose-blockquote-text: 0 0% 60%;
+    --nav-border: 0 0% 14%;
+  }
+
+  * {
+    @apply border-border;
   }
 
   html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    @apply min-h-screen bg-white text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+    @apply bg-background text-foreground font-sans;
   }
 
-  /* Simple theme transition */
-  body, a, button {
-    transition: background-color var(--theme-transition), 
-                color var(--theme-transition), 
-                border-color var(--theme-transition);
+  a,
+  button,
+  input,
+  textarea {
+    @apply transition-colors;
   }
 }
 
-/* Minimal responsive styles */
-@media (max-width: 640px) {
-  html {
-    scroll-padding-top: 4rem;
+@layer components {
+  .section-shell {
+    @apply max-w-3xl mx-auto px-6;
   }
-  
-  /* Better touch targets on mobile */
-  button, a {
-    @apply min-h-[44px];
+
+  .prose {
+    @apply text-prose-body leading-relaxed;
+    max-width: 65ch;
   }
-}
 
+  .prose h1 {
+    @apply text-prose-heading text-3xl sm:text-4xl font-bold tracking-tight mt-12 mb-4;
+  }
 
-/* Add smooth animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+  .prose h2 {
+    @apply text-prose-heading text-2xl font-semibold tracking-tight mt-10 mb-3 pb-2 border-b border-border;
+  }
 
-@keyframes slideUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
+  .prose h3 {
+    @apply text-prose-heading text-xl font-semibold tracking-tight mt-8 mb-3;
+  }
 
-@keyframes slideDown {
-  from { transform: translateY(-20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
+  .prose h4 {
+    @apply text-prose-heading text-lg font-medium mt-6 mb-2;
+  }
 
-@keyframes scaleIn {
-  from { transform: scale(0.95); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
+  .prose p {
+    @apply mb-6;
+  }
 
-/* Apply animations to elements */
-.animate-fade-in {
-  animation: fadeIn 0.6s ease forwards;
-}
+  .prose a {
+    @apply text-prose-link underline underline-offset-4 decoration-prose-link/30 hover:decoration-prose-link;
+  }
 
-.animate-slide-up {
-  animation: slideUp 0.6s ease forwards;
-}
+  .prose strong {
+    @apply font-semibold text-prose-heading;
+  }
 
-.animate-slide-down {
-  animation: slideDown 0.6s ease forwards;
-}
+  .prose ul {
+    @apply list-disc pl-6 mb-6 space-y-2;
+  }
 
-.animate-scale-in {
-  animation: scaleIn 0.6s ease forwards;
-}
+  .prose ol {
+    @apply list-decimal pl-6 mb-6 space-y-2;
+  }
 
-/* Staggered animation delays */
-.delay-100 {
-  animation-delay: 0.1s;
-}
+  .prose li {
+    @apply leading-relaxed;
+  }
 
-.delay-200 {
-  animation-delay: 0.2s;
-}
+  .prose blockquote {
+    @apply border-l-2 border-prose-blockquote-border pl-4 py-1 my-6 text-prose-blockquote italic;
+  }
 
-.delay-300 {
-  animation-delay: 0.3s;
-}
+  .prose code {
+    @apply bg-prose-code-bg text-prose-code-text text-sm px-1.5 py-0.5 rounded;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  }
 
-.delay-400 {
-  animation-delay: 0.4s;
-}
+  .prose pre {
+    @apply bg-prose-code-bg rounded-lg p-4 overflow-x-auto mb-6 border border-border;
+  }
 
-/* Smooth hover transitions */
-a, button {
-  transition: all 0.2s ease;
-}
+  .prose pre code {
+    @apply bg-transparent p-0 text-sm;
+  }
 
-a:hover, button:hover {
-  transform: translateY(-1px);
-}
+  .prose img {
+    @apply rounded-lg border border-border my-8;
+  }
 
-/* Smooth page transitions */
-.page-transition {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
+  .prose hr {
+    @apply border-border my-10;
+  }
 
-.page-entering {
-  opacity: 0;
-  transform: translateY(10px);
-}
+  .prose table {
+    @apply w-full border-collapse mb-6;
+  }
 
-.page-entered {
-  opacity: 1;
-  transform: translateY(0);
+  .prose th {
+    @apply text-left text-prose-heading font-semibold pb-2 border-b-2 border-border px-3;
+  }
+
+  .prose td {
+    @apply py-2 border-b border-border px-3;
+  }
 }
